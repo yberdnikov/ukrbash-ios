@@ -1,5 +1,5 @@
 //
-//  BestQuotesViewController.h
+//  SecondViewController.h
 //  ukrbash
 //
 //  Created by Yuriy Berdnikov on 12/5/12.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface BestQuotesViewController : UIViewController
+@interface NotPublishedViewController : BaseViewController
 
 @end

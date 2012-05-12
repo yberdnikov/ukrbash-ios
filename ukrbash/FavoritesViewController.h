@@ -1,5 +1,5 @@
 //
-//  BestQuotesViewController.h
+//  FavoritesViewController.h
 //  ukrbash
 //
 //  Created by Yuriy Berdnikov on 12/5/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BestQuotesViewController : UIViewController
+@interface FavoritesViewController : UITableViewController
 
 @end
