@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74CDF7D4155E42AE00B2459C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D3155E42AE00B2459C /* UIKit.framework */; };
+		74CDF7D6155E42AE00B2459C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D5155E42AE00B2459C /* Foundation.framework */; };
+		74CDF7D8155E42AE00B2459C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */; };
+		74CDF7DE155E42AE00B2459C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7DC155E42AE00B2459C /* InfoPlist.strings */; };
+		74CDF7E0155E42AE00B2459C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7DF155E42AE00B2459C /* main.m */; };
+		74CDF7E4155E42AE00B2459C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7E3155E42AE00B2459C /* AppDelegate.m */; };
+		74CDF7E7155E42AE00B2459C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */; };
+		74CDF7EA155E42AE00B2459C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7E9155E42AE00B2459C /* FirstViewController.m */; };
+		74CDF7EC155E42AE00B2459C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7EB155E42AE00B2459C /* first.png */; };
+		74CDF7EE155E42AE00B2459C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7ED155E42AE00B2459C /* first@2x.png */; };
+		74CDF7F1155E42AE00B2459C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7F0155E42AE00B2459C /* SecondViewController.m */; };
+		74CDF7F3155E42AE00B2459C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7F2155E42AE00B2459C /* second.png */; };
+		74CDF7F5155E42AE00B2459C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7F4155E42AE00B2459C /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		74CDF7CF155E42AD00B2459C /* ukrbash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ukrbash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74CDF7D3155E42AE00B2459C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		74CDF7D5155E42AE00B2459C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		74CDF7DB155E42AE00B2459C /* ukrbash-Info.plist */ = {isa = PBXFileReference; path = "ukrbash-Info.plist"; sourceTree = "<group>"; };
+		74CDF7DD155E42AE00B2459C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		74CDF7DF155E42AE00B2459C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		74CDF7E1155E42AE00B2459C /* ukrbash-Prefix.pch */ = {isa = PBXFileReference; path = "ukrbash-Prefix.pch"; sourceTree = "<group>"; };
+		74CDF7E2155E42AE00B2459C /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		74CDF7E3155E42AE00B2459C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		74CDF7E6155E42AE00B2459C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		74CDF7E8155E42AE00B2459C /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		74CDF7E9155E42AE00B2459C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		74CDF7EB155E42AE00B2459C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		74CDF7ED155E42AE00B2459C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		74CDF7EF155E42AE00B2459C /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		74CDF7F0155E42AE00B2459C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		74CDF7F2155E42AE00B2459C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		74CDF7F4155E42AE00B2459C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74CDF7CC155E42AD00B2459C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CDF7D4155E42AE00B2459C /* UIKit.framework in Frameworks */,
+				74CDF7D6155E42AE00B2459C /* Foundation.framework in Frameworks */,
+				74CDF7D8155E42AE00B2459C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74CDF7C4155E42AD00B2459C = {
+			isa = PBXGroup;
+			children = (
+				74CDF7D9155E42AE00B2459C /* ukrbash */,
+				74CDF7D2155E42AD00B2459C /* Frameworks */,
+				74CDF7D0155E42AD00B2459C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74CDF7D0155E42AD00B2459C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74CDF7CF155E42AD00B2459C /* ukrbash.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74CDF7D2155E42AD00B2459C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74CDF7D3155E42AE00B2459C /* UIKit.framework */,
+				74CDF7D5155E42AE00B2459C /* Foundation.framework */,
+				74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74CDF7D9155E42AE00B2459C /* ukrbash */ = {
+			isa = PBXGroup;
+			children = (
+				74CDF7E2155E42AE00B2459C /* AppDelegate.h */,
+				74CDF7E3155E42AE00B2459C /* AppDelegate.m */,
+				74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */,
+				74CDF7E8155E42AE00B2459C /* FirstViewController.h */,
+				74CDF7E9155E42AE00B2459C /* FirstViewController.m */,
+				74CDF7EB155E42AE00B2459C /* first.png */,
+				74CDF7ED155E42AE00B2459C /* first@2x.png */,
+				74CDF7EF155E42AE00B2459C /* SecondViewController.h */,
+				74CDF7F0155E42AE00B2459C /* SecondViewController.m */,
+				74CDF7F2155E42AE00B2459C /* second.png */,
+				74CDF7F4155E42AE00B2459C /* second@2x.png */,
+				74CDF7DA155E42AE00B2459C /* Supporting Files */,
+			);
+			path = ukrbash;
+			sourceTree = "<group>";
+		};
+		74CDF7DA155E42AE00B2459C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74CDF7DB155E42AE00B2459C /* ukrbash-Info.plist */,
+				74CDF7DC155E42AE00B2459C /* InfoPlist.strings */,
+				74CDF7DF155E42AE00B2459C /* main.m */,
+				74CDF7E1155E42AE00B2459C /* ukrbash-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74CDF7CE155E42AD00B2459C /* ukrbash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74CDF7F8155E42AE00B2459C /* Build configuration list for PBXNativeTarget "ukrbash" */;
+			buildPhases = (
+				74CDF7CB155E42AD00B2459C /* Sources */,
+				74CDF7CC155E42AD00B2459C /* Frameworks */,
+				74CDF7CD155E42AD00B2459C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ukrbash;
+			productName = ukrbash;
+			productReference = 74CDF7CF155E42AD00B2459C /* ukrbash.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74CDF7C6155E42AD00B2459C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 74CDF7C9155E42AD00B2459C /* Build configuration list for PBXProject "ukrbash" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 74CDF7C4155E42AD00B2459C;
+			productRefGroup = 74CDF7D0155E42AD00B2459C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74CDF7CE155E42AD00B2459C /* ukrbash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74CDF7CD155E42AD00B2459C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CDF7DE155E42AE00B2459C /* InfoPlist.strings in Resources */,
+				74CDF7E7155E42AE00B2459C /* MainStoryboard.storyboard in Resources */,
+				74CDF7EC155E42AE00B2459C /* first.png in Resources */,
+				74CDF7EE155E42AE00B2459C /* first@2x.png in Resources */,
+				74CDF7F3155E42AE00B2459C /* second.png in Resources */,
+				74CDF7F5155E42AE00B2459C /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74CDF7CB155E42AD00B2459C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CDF7E0155E42AE00B2459C /* main.m in Sources */,
+				74CDF7E4155E42AE00B2459C /* AppDelegate.m in Sources */,
+				74CDF7EA155E42AE00B2459C /* FirstViewController.m in Sources */,
+				74CDF7F1155E42AE00B2459C /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		74CDF7DC155E42AE00B2459C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74CDF7DD155E42AE00B2459C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74CDF7E6155E42AE00B2459C /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74CDF7F6155E42AE00B2459C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		74CDF7F7155E42AE00B2459C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74CDF7F9155E42AE00B2459C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ukrbash/ukrbash-Prefix.pch";
+				INFOPLIST_FILE = "ukrbash/ukrbash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		74CDF7FA155E42AE00B2459C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ukrbash/ukrbash-Prefix.pch";
+				INFOPLIST_FILE = "ukrbash/ukrbash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74CDF7C9155E42AD00B2459C /* Build configuration list for PBXProject "ukrbash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74CDF7F6155E42AE00B2459C /* Debug */,
+				74CDF7F7155E42AE00B2459C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74CDF7F8155E42AE00B2459C /* Build configuration list for PBXNativeTarget "ukrbash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74CDF7F9155E42AE00B2459C /* Debug */,
+				74CDF7FA155E42AE00B2459C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74CDF7C6155E42AD00B2459C /* Project object */;
+}
