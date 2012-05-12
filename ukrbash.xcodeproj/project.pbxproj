@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		741B0727155E49B700F07219 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741B0726155E49B700F07219 /* CoreData.framework */; };
+		741B072A155E4B8000F07219 /* QuotesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741B0728155E4B8000F07219 /* QuotesCoreData.xcdatamodeld */; };
 		74CDF7D4155E42AE00B2459C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D3155E42AE00B2459C /* UIKit.framework */; };
 		74CDF7D6155E42AE00B2459C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D5155E42AE00B2459C /* Foundation.framework */; };
 		74CDF7D8155E42AE00B2459C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */; };
@@ -14,7 +16,7 @@
 		74CDF7E0155E42AE00B2459C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7DF155E42AE00B2459C /* main.m */; };
 		74CDF7E4155E42AE00B2459C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7E3155E42AE00B2459C /* AppDelegate.m */; };
 		74CDF7E7155E42AE00B2459C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */; };
-		74CDF7EA155E42AE00B2459C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7E9155E42AE00B2459C /* FirstViewController.m */; };
+		74CDF7EA155E42AE00B2459C /* BestQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7E9155E42AE00B2459C /* BestQuotesViewController.m */; };
 		74CDF7EC155E42AE00B2459C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7EB155E42AE00B2459C /* first.png */; };
 		74CDF7EE155E42AE00B2459C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CDF7ED155E42AE00B2459C /* first@2x.png */; };
 		74CDF7F1155E42AE00B2459C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDF7F0155E42AE00B2459C /* SecondViewController.m */; };
@@ -23,22 +25,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741B0726155E49B700F07219 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		741B0729155E4B8000F07219 /* QuotesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesCoreData.xcdatamodel; sourceTree = "<group>"; };
 		74CDF7CF155E42AD00B2459C /* ukrbash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ukrbash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CDF7D3155E42AE00B2459C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74CDF7D5155E42AE00B2459C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		74CDF7DB155E42AE00B2459C /* ukrbash-Info.plist */ = {isa = PBXFileReference; path = "ukrbash-Info.plist"; sourceTree = "<group>"; };
+		74CDF7DB155E42AE00B2459C /* ukrbash-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ukrbash-Info.plist"; sourceTree = "<group>"; };
 		74CDF7DD155E42AE00B2459C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74CDF7DF155E42AE00B2459C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		74CDF7E1155E42AE00B2459C /* ukrbash-Prefix.pch */ = {isa = PBXFileReference; path = "ukrbash-Prefix.pch"; sourceTree = "<group>"; };
-		74CDF7E2155E42AE00B2459C /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		74CDF7E1155E42AE00B2459C /* ukrbash-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ukrbash-Prefix.pch"; sourceTree = "<group>"; };
+		74CDF7E2155E42AE00B2459C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74CDF7E3155E42AE00B2459C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		74CDF7E6155E42AE00B2459C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		74CDF7E8155E42AE00B2459C /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		74CDF7E9155E42AE00B2459C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		74CDF7E8155E42AE00B2459C /* BestQuotesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BestQuotesViewController.h; sourceTree = "<group>"; };
+		74CDF7E9155E42AE00B2459C /* BestQuotesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BestQuotesViewController.m; sourceTree = "<group>"; };
 		74CDF7EB155E42AE00B2459C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		74CDF7ED155E42AE00B2459C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		74CDF7EF155E42AE00B2459C /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		74CDF7EF155E42AE00B2459C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		74CDF7F0155E42AE00B2459C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		74CDF7F2155E42AE00B2459C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		74CDF7F4155E42AE00B2459C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741B0727155E49B700F07219 /* CoreData.framework in Frameworks */,
 				74CDF7D4155E42AE00B2459C /* UIKit.framework in Frameworks */,
 				74CDF7D6155E42AE00B2459C /* Foundation.framework in Frameworks */,
 				74CDF7D8155E42AE00B2459C /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +83,7 @@
 		74CDF7D2155E42AD00B2459C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				741B0726155E49B700F07219 /* CoreData.framework */,
 				74CDF7D3155E42AE00B2459C /* UIKit.framework */,
 				74CDF7D5155E42AE00B2459C /* Foundation.framework */,
 				74CDF7D7155E42AE00B2459C /* CoreGraphics.framework */,
@@ -91,8 +97,8 @@
 				74CDF7E2155E42AE00B2459C /* AppDelegate.h */,
 				74CDF7E3155E42AE00B2459C /* AppDelegate.m */,
 				74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */,
-				74CDF7E8155E42AE00B2459C /* FirstViewController.h */,
-				74CDF7E9155E42AE00B2459C /* FirstViewController.m */,
+				74CDF7E8155E42AE00B2459C /* BestQuotesViewController.h */,
+				74CDF7E9155E42AE00B2459C /* BestQuotesViewController.m */,
 				74CDF7EB155E42AE00B2459C /* first.png */,
 				74CDF7ED155E42AE00B2459C /* first@2x.png */,
 				74CDF7EF155E42AE00B2459C /* SecondViewController.h */,
@@ -100,6 +106,7 @@
 				74CDF7F2155E42AE00B2459C /* second.png */,
 				74CDF7F4155E42AE00B2459C /* second@2x.png */,
 				74CDF7DA155E42AE00B2459C /* Supporting Files */,
+				741B0728155E4B8000F07219 /* QuotesCoreData.xcdatamodeld */,
 			);
 			path = ukrbash;
 			sourceTree = "<group>";
@@ -183,8 +190,9 @@
 			files = (
 				74CDF7E0155E42AE00B2459C /* main.m in Sources */,
 				74CDF7E4155E42AE00B2459C /* AppDelegate.m in Sources */,
-				74CDF7EA155E42AE00B2459C /* FirstViewController.m in Sources */,
+				74CDF7EA155E42AE00B2459C /* BestQuotesViewController.m in Sources */,
 				74CDF7F1155E42AE00B2459C /* SecondViewController.m in Sources */,
+				741B072A155E4B8000F07219 /* QuotesCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +304,22 @@
 				74CDF7FA155E42AE00B2459C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		741B0728155E4B8000F07219 /* QuotesCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				741B0729155E4B8000F07219 /* QuotesCoreData.xcdatamodel */,
+			);
+			currentVersion = 741B0729155E4B8000F07219 /* QuotesCoreData.xcdatamodel */;
+			path = QuotesCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74CDF7C6155E42AD00B2459C /* Project object */;
 }
