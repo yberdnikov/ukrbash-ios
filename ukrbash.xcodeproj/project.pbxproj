@@ -42,6 +42,8 @@
 /* Begin PBXFileReference section */
 		741B0726155E49B700F07219 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		741B0729155E4B8000F07219 /* QuotesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesCoreData.xcdatamodel; sourceTree = "<group>"; };
+		74B41653155F94770025091D /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		74B41659155F966F0025091D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		74CDA5B5155EA9770031B304 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
 		74CDA5B6155EA9770031B304 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		74CDA5C0155EAC400031B304 /* BestQuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestQuotesViewController.h; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74B41652155F94770025091D /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				74B41653155F94770025091D /* Logging.h */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
 		74CDA5BF155EAC400031B304 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 		74CDA5CC155EAC560031B304 /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				74B41652155F94770025091D /* Logging */,
 				74CDA5DA155EAD2D0031B304 /* EGOTableViewPullRefresh */,
 			);
 			path = 3rdParty;
@@ -229,6 +240,7 @@
 				74CDA5B5155EA9770031B304 /* Quote.h */,
 				74CDA5B6155EA9770031B304 /* Quote.m */,
 				74CDA5D1155EAC750031B304 /* Resources */,
+				74B41659155F966F0025091D /* Constants.h */,
 			);
 			path = ukrbash;
 			sourceTree = "<group>";

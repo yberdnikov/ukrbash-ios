@@ -7,8 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-#define REFRESH_TABLE_DELAY 3.0
+#import "Constants.h"
 
 @implementation BaseViewController
 

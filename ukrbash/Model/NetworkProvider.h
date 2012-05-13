@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    UnknownQuotesCategory = 0,
+    LatestQuotesCategory,
+    BestQuotesCategory,
+    NotPublishedQuotesCategory
+} QuotesCategory;
+
 @interface NetworkProvider : NSObject
 
-- (void)requestLatestQuotes;
-- (void)requestBestQuotes;
-- (void)requestNotPublishedQuotes;
+- (void)requestQuotes:(QuotesCategory)category;
 
 @end
