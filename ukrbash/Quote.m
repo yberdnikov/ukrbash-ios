@@ -2,7 +2,7 @@
 //  Quote.m
 //  ukrbash
 //
-//  Created by Yuriy Berdnikov on 12/5/12.
+//  Created by Yuriy Berdnikov on 21/10/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,7 +13,12 @@
 
 @dynamic author;
 @dynamic id;
-@dynamic pubDate;
 @dynamic text;
+@dynamic status;
+@dynamic type;
+@dynamic add_date;
+@dynamic pub_date;
+@dynamic author_id;
+@dynamic rating;
 
 @end

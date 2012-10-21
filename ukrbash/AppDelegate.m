@@ -7,22 +7,85 @@
 //
 
 #import "AppDelegate.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
+#import "Quote.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize managedObjectContext = __managedObjectContext;
-@synthesize managedObjectModel = __managedObjectModel;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    if (!context) {
-        // Handle the error.
-    }
-    // Pass the managed object context to the view controller.
-    //rootViewController.managedObjectContext = context;
+    // Initialize RestKit
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://api.ukrbash.org/1"];
+    
+    // Enable automatic network activity indicator management
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
+    // Initialize object store
+    //#ifdef RESTKIT_GENERATE_SEED_DB
+    NSString *seedDatabaseName = nil;
+    NSString *databaseName = RKDefaultSeedDatabaseFileName;
+//#else
+//    NSString *seedDatabaseName = RKDefaultSeedDatabaseFileName;
+//    NSString *databaseName = @"UkrBashData.sqlite";
+//#endif
+    
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName
+                                                             usingSeedDatabaseName:seedDatabaseName
+                                                                managedObjectModel:nil delegate:self];
+    
+    // Setup our object mappings
+    RKManagedObjectMapping *statusMapping = [RKManagedObjectMapping mappingForClass:[Quote class]
+                                                               inManagedObjectStore:objectManager.objectStore];
+    statusMapping.primaryKeyAttribute = @"id";
+    [statusMapping mapKeyPathsToAttributes:@"id", @"id",
+     @"author", @"author",
+     @"text", @"text",
+     @"status", @"status",
+     @"type", @"type",
+     @"add_date", @"add_date",
+     @"pub_date", @"pub_date",
+     @"author_id", @"author_id",
+     @"rating", @"rating",
+     nil];
+    
+    // Update date format so that we can parse Twitter dates properly
+    // Wed Sep 29 15:31:08 +0000 2010
+    [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
+    
+    // Register our mappings with the provider
+    [objectManager.mappingProvider setObjectMapping:statusMapping forResourcePathPattern:@"/quotes.getPublished.json"];
+    
+    // Uncomment this to use XML, comment it to use JSON
+    //  objectManager.acceptMIMEType = RKMIMETypeXML;
+    //  [objectManager.mappingProvider setMapping:statusMapping forKeyPath:@"statuses.status"];
+    
+    // Database seeding is configured as a copied target of the main application. There are only two differences
+    // between the main application target and the 'Generate Seed Database' target:
+    //  1) RESTKIT_GENERATE_SEED_DB is defined in the 'Preprocessor Macros' section of the build setting for the target
+    //      This is what triggers the conditional compilation to cause the seed database to be built
+    //  2) Source JSON files are added to the 'Generate Seed Database' target to be copied into the bundle. This is required
+    //      so that the object seeder can find the files when run in the simulator.
+#ifdef RESTKIT_GENERATE_SEED_DB
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+    RKManagedObjectSeeder *seeder = [RKManagedObjectSeeder objectSeederWithObjectManager:objectManager];
+    
+    // Seed the database with instances of RKTStatus from a snapshot of the RestKit Twitter timeline
+    [seeder seedObjectsFromFile:@"restkit.json" withObjectMapping:statusMapping];
+    
+    // Seed the database with RKTUser objects. The class will be inferred via element registration
+    [seeder seedObjectsFromFiles:@"users.json", nil];
+    
+    // Finalize the seeding operation and output a helpful informational message
+    [seeder finalizeSeedingAndExit];
+    
+    // NOTE: If all of your mapped objects use keyPath -> objectMapping registration, you can perform seeding in one line of code:
+    // [RKManagedObjectSeeder generateSeedDatabaseWithObjectManager:objectManager fromFiles:@"users.json", nil];
+#endif
+
     
     return YES;
 }
@@ -64,120 +127,6 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
-    [self saveContext];
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil)
-    {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-             */
-            LogError(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
-}
-
-#pragma mark - Core Data stack
-
-/**
- Returns the managed object context for the application.
- If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
- */
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (__managedObjectContext != nil)
-    {
-        return __managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil)
-    {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return __managedObjectContext;
-}
-
-/**
- Returns the managed object model for the application.
- If the model doesn't already exist, it is created from the application's model.
- */
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (__managedObjectModel != nil)
-    {
-        return __managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"QuotesCoreData" withExtension:@"momd"];
-    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return __managedObjectModel;
-}
-
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (__persistentStoreCoordinator != nil)
-    {
-        return __persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"QuotesCoreData.sqlite"];
-    
-    NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
-    {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
-         [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        LogError(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }    
-    
-    return __persistentStoreCoordinator;
-}
-
-#pragma mark - Application's Documents directory
-
-/**
- Returns the URL to the application's Documents directory.
- */
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

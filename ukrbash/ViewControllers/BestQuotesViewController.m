@@ -7,6 +7,13 @@
 //
 
 #import "BestQuotesViewController.h"
+#import "Quote.h"
+
+@interface BestQuotesViewController ()
+
+- (void)loadObjectsFromDataStore;
+
+@end
 
 @implementation BestQuotesViewController
 
@@ -36,13 +43,14 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self loadObjectsFromDataStore];
 }
-*/
 
 - (void)viewDidUnload
 {
@@ -55,6 +63,45 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)loadObjectsFromDataStore
+{
+    NSFetchRequest *request = [Quote fetchRequest];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pub_date" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    self.data = [Quote objectsWithFetchRequest:request];
+}
+
+- (void)loadData
+{
+    // Load the object model via RestKit
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager loadObjectsAtResourcePath:@"/quotes.getPublished.json?client=0d940253d19a2fdc" delegate:self];
+}
+
+- (void)reloadTableViewDataSource
+{
+    [self loadData];   
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    NSLog(@"Loaded statuses: %@", objects);
+    [self loadObjectsFromDataStore];
+    [self.tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                     message:[error localizedDescription]
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
 }
 
 @end

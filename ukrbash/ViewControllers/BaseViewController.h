@@ -15,6 +15,8 @@ UITableViewDataSource, UITableViewDelegate> {
     BOOL _reloadingTableView;
 }
 
+@property(nonatomic, retain) NSArray *data;
+
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;
 

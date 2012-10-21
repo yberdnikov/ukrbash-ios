@@ -1,0 +1,3 @@
+[submodule "ukrbash/3rdParty/RestKit"]
+	path = ukrbash/3rdParty/RestKit
+	url = git://github.com/RestKit/RestKit.git

@@ -11,6 +11,8 @@
 
 @implementation BaseViewController
 
+@synthesize data;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -87,16 +89,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,6 +107,7 @@
     }
     
     // Configure the cell...
+    cell.textLabel.text = [[data objectAtIndex:indexPath.row] text];
     
     return cell;
 }
@@ -165,6 +164,11 @@
      */
 }
 
+- (void)reloadTableViewDataSource
+{
+    
+}
+
 - (void)doneLoadingTableViewData
 {	
 	//  model should call this when its done loading
@@ -191,6 +195,8 @@
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
 {	
 	_reloadingTableView = YES;
+    
+    [self reloadTableViewDataSource];
     
     [self performSelector:@selector(doneLoadingTableViewData)
                withObject:nil

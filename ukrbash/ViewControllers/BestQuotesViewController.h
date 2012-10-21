@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 #import "BaseViewController.h"
 
-@interface BestQuotesViewController : BaseViewController
+@interface BestQuotesViewController : BaseViewController <RKObjectLoaderDelegate>
 
 @end
