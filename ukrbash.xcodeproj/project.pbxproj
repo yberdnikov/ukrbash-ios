@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7411D04D16441DFB00B6DF27 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7411D04C16441DFB00B6DF27 /* Quote.m */; };
 		741B0727155E49B700F07219 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741B0726155E49B700F07219 /* CoreData.framework */; };
 		741B072A155E4B8000F07219 /* QuotesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741B0728155E4B8000F07219 /* QuotesCoreData.xcdatamodeld */; };
 		747F6BDC1633EDDA007A315F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747F6BDB1633EDDA007A315F /* CFNetwork.framework */; };
@@ -14,7 +15,6 @@
 		747F6BE01633EE3C007A315F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747F6BDF1633EE3C007A315F /* MobileCoreServices.framework */; };
 		747F6BE21633EE42007A315F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747F6BE11633EE42007A315F /* SystemConfiguration.framework */; };
 		749ED571163458C200D76B58 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 749ED5661634588200D76B58 /* libRestKit.a */; };
-		74B4A9371633E88E002A3DAB /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B4A9361633E88E002A3DAB /* Quote.m */; };
 		74CDA5C8155EAC400031B304 /* BestQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDA5C1155EAC400031B304 /* BestQuotesViewController.m */; };
 		74CDA5C9155EAC400031B304 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDA5C3155EAC400031B304 /* FavoritesViewController.m */; };
 		74CDA5CA155EAC400031B304 /* LatestQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CDA5C5155EAC400031B304 /* LatestQuotesViewController.m */; };
@@ -89,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7411D04B16441DFB00B6DF27 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
+		7411D04C16441DFB00B6DF27 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		741B0726155E49B700F07219 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		741B0729155E4B8000F07219 /* QuotesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesCoreData.xcdatamodel; sourceTree = "<group>"; };
 		747F6BDB1633EDDA007A315F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -98,8 +100,6 @@
 		749ED55A1634588100D76B58 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		74B41653155F94770025091D /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		74B41659155F966F0025091D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		74B4A9351633E88E002A3DAB /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
-		74B4A9361633E88E002A3DAB /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		74CDA5C0155EAC400031B304 /* BestQuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestQuotesViewController.h; sourceTree = "<group>"; };
 		74CDA5C1155EAC400031B304 /* BestQuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestQuotesViewController.m; sourceTree = "<group>"; };
 		74CDA5C2155EAC400031B304 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
@@ -309,8 +309,8 @@
 				74CDF7E5155E42AE00B2459C /* MainStoryboard.storyboard */,
 				74CDF7DA155E42AE00B2459C /* Supporting Files */,
 				741B0728155E4B8000F07219 /* QuotesCoreData.xcdatamodeld */,
-				74B4A9351633E88E002A3DAB /* Quote.h */,
-				74B4A9361633E88E002A3DAB /* Quote.m */,
+				7411D04B16441DFB00B6DF27 /* Quote.h */,
+				7411D04C16441DFB00B6DF27 /* Quote.m */,
 				74CDA5D1155EAC750031B304 /* Resources */,
 				74B41659155F966F0025091D /* Constants.h */,
 			);
@@ -456,7 +456,7 @@
 				74CDA5CB155EAC400031B304 /* NotPublishedViewController.m in Sources */,
 				74CDA5E8155EAD2D0031B304 /* EGORefreshTableHeaderView.m in Sources */,
 				74CDA5FD155EB0280031B304 /* BaseViewController.m in Sources */,
-				74B4A9371633E88E002A3DAB /* Quote.m in Sources */,
+				7411D04D16441DFB00B6DF27 /* Quote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
