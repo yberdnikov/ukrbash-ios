@@ -56,7 +56,9 @@
     [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
     
     // Register our mappings with the provider
+    [objectManager.mappingProvider setObjectMapping:statusMapping forResourcePathPattern:@"/quotes.getTheBest.json"];
     [objectManager.mappingProvider setObjectMapping:statusMapping forResourcePathPattern:@"/quotes.getPublished.json"];
+    [objectManager.mappingProvider setObjectMapping:statusMapping forResourcePathPattern:@"/quotes.getUpcoming.json"];
     
     // Uncomment this to use XML, comment it to use JSON
     //  objectManager.acceptMIMEType = RKMIMETypeXML;

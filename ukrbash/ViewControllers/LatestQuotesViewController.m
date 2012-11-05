@@ -10,6 +10,17 @@
 
 @implementation LatestQuotesViewController
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+    if (self)
+    {
+        self.resourcePath =  @"/quotes.getPublished.json";
+        self.quoteFilterType = @"latest";
+    }
+    return self;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -31,30 +42,14 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
+#pragma mark RKObjectLoaderDelegate methods
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    [objects makeObjectsPerformSelector:@selector(setKind:) withObject:self.quoteFilterType];
+    
+    [self loadObjectsFromDataStore];
+    [self.tableView reloadData];
 }
 
 @end

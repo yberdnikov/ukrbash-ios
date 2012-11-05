@@ -51,33 +51,19 @@
 	
 	//  update the last update date
 	[_refreshHeaderView refreshLastUpdatedDate];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self loadObjectsFromDataStore];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     _refreshHeaderView = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -105,13 +91,23 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        cell.textLabel.numberOfLines = 0;
     }
     
     // Configure the cell...
     Quote *quote = [data objectAtIndex:indexPath.row];
-    cell.textLabel.text = quote.kind;
+    cell.textLabel.text = quote.text;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+	CGSize labelSize = [[[self.data objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:14] constrainedToSize:constraintSize];
+    
+	return labelSize.height;
 }
 
 /*
@@ -168,7 +164,7 @@
 
 - (void)reloadTableViewDataSource
 {
-    
+    [self loadData];
 }
 
 - (void)doneLoadingTableViewData
@@ -214,5 +210,42 @@
 {	
 	return [NSDate date]; // should return date data source was last changed	
 }
+
+- (void)loadObjectsFromDataStore
+{
+    NSFetchRequest *request = [Quote fetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"kind like %@", self.quoteFilterType];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pub_date" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    
+    self.data = [Quote objectsWithFetchRequest:request];
+}
+
+- (void)loadData
+{
+    // Load the object model via RestKit
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager loadObjectsAtResourcePath:[NSString stringWithFormat:@"%@?client=0d940253d19a2fdc", self.resourcePath] delegate:self];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
 
 @end
