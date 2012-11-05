@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "Constants.h"
+#import "Quote.h"
 
 @implementation BaseViewController
 
@@ -107,7 +108,8 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = [[data objectAtIndex:indexPath.row] text];
+    Quote *quote = [data objectAtIndex:indexPath.row];
+    cell.textLabel.text = quote.kind;
     
     return cell;
 }

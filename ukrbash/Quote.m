@@ -2,8 +2,8 @@
 //  Quote.m
 //  ukrbash
 //
-//  Created by Yuriy Berdnikov on 21/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Yuriy Berdnikov on 11/2/12.
+//
 //
 
 #import "Quote.h"
@@ -11,14 +11,15 @@
 
 @implementation Quote
 
-@dynamic author;
-@dynamic id;
-@dynamic text;
-@dynamic status;
-@dynamic type;
 @dynamic add_date;
-@dynamic pub_date;
+@dynamic author;
 @dynamic author_id;
+@dynamic id;
+@dynamic pub_date;
 @dynamic rating;
+@dynamic status;
+@dynamic text;
+@dynamic type;
+@dynamic kind;
 
 @end

@@ -68,8 +68,12 @@
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Quote fetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"kind like 'best'"];
+    [request setPredicate:predicate];
+    
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pub_date" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    
     self.data = [Quote objectsWithFetchRequest:request];
 }
 
@@ -90,6 +94,8 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     NSLog(@"Loaded statuses: %@", objects);
+    [objects makeObjectsPerformSelector:@selector(setKind:) withObject:@"best"];
+    
     [self loadObjectsFromDataStore];
     [self.tableView reloadData];
 }
