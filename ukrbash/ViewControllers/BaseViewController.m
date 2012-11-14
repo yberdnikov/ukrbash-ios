@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "Constants.h"
 #import "Quote.h"
+#import "QuoteViewCell.h"
 
 @implementation BaseViewController
 
@@ -36,7 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.tableView.sectionHeaderHeight = 10.0f;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"QuoteCellView" bundle:nil] forCellReuseIdentifier:@"QuoteCell"];
+    
     if (_refreshHeaderView == nil) {
         CGRect frame = CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height,
                                   self.view.frame.size.width,
@@ -51,6 +56,7 @@
 	
 	//  update the last update date
 	[_refreshHeaderView refreshLastUpdatedDate];
+    [self reloadTableViewDataSource];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -74,80 +80,56 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (UIView *)tableView:(UITableView *)tbl viewForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.bounds.size.width, 10)];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.data.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-        cell.textLabel.numberOfLines = 0;
+    static NSString *CellIdentifier = @"QuoteCell";
+    QuoteViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell)
+    {
+        cell = [[QuoteViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-    Quote *quote = [data objectAtIndex:indexPath.row];
-    cell.textLabel.text = quote.text;
+    Quote *quote = [data objectAtIndex:indexPath.section];
+    
+    CGSize constraintSize = CGSizeMake(280, MAXFLOAT);
+    CGSize textSize = [quote.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:13.0f] constrainedToSize:constraintSize];
+    CGSize idSize = [quote.id.stringValue sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constraintSize];
+    
+    cell.quoteText.frame = CGRectMake(cell.quoteText.frame.origin.x, cell.quoteText.frame.origin.y, textSize.width, textSize.height);
+    cell.quoteText.text = quote.text;
+    
+    cell.quoteID.frame = CGRectMake(280 - idSize.width, CGRectGetMaxY(cell.quoteText.frame), idSize.width, idSize.height);
+    cell.quoteID.text = quote.id.stringValue;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
-	CGSize labelSize = [[[self.data objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:14] constrainedToSize:constraintSize];
+	CGSize constraintSize = CGSizeMake(280, MAXFLOAT);
+    Quote *quote = [data objectAtIndex:indexPath.section];
     
-	return labelSize.height;
+	CGSize textSize = [quote.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:13.0f] constrainedToSize:constraintSize];
+    CGSize idSize = [quote.id.stringValue sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constraintSize];
+    
+	return textSize.height + idSize.height;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
